@@ -31,7 +31,7 @@ def create_store():
 @app.route('/store/<string:name>')
 def get_store(name):
     for store in stores:
-        if sotore['name'] == name:
+        if store['name'] == name:
             return jsonify(store)
     return jsonify({ 'message': 'Store not found' })
 
@@ -47,7 +47,7 @@ def create_item_in_store(name):
         if store['name'] == name:
             new_item = {
                 'name': request_data['name'],
-                'price': rrequest_data['price']
+                'price': request_data['price']
             }
             store['items'].append(new_item)
             return jsonify(store)
@@ -57,7 +57,7 @@ def create_item_in_store(name):
 @app.route('/store/<string:name>/item')
 def get_item_in_store(name):
     for store in stores:
-        if sotres['name'] == name:
+        if store['name'] == name:
             return jsonify(store['items'])
     return jsonigy({ 'message': 'store not found' })
 
