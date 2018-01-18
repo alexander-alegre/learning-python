@@ -13,14 +13,14 @@ class Item(Resource):
     def get(self, name):
         for item in items:
             if item['name'] == name:
-                return item
-        return errorMessage
+                return item, 200
+        return errorMessage, 404
 
     # create an item with a name
     def post(self, name):
         item = { 'name': name, 'price': 12.00 }
         items.append(item)
-        return successMessage
+        return successMessage, 201
 
 api.add_resource(Item, '/item/<string:name>')
 
@@ -28,7 +28,7 @@ api.add_resource(Item, '/item/<string:name>')
 class Items(Resource):
     # retrieve all items 
     def get(self):
-        return items
+        return items, 200
 
 api.add_resource(Items, '/items')
 
