@@ -1,1 +1,3 @@
 venv/
+data.db
+code/__pycache__
